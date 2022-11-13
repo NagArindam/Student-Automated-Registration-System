@@ -1,0 +1,46 @@
+create database automatedStudentRegistrationSystem;
+
+use automatedStudentRegistrationSystem;
+
+//Table creation
+
+create table Students(
+semail varchar(15) primary key,
+spassword varchar(10) not null,
+sname varchar(10) not null 
+); 
+
+create table Courses(
+cid int primary key,
+cname varchar(20) not null,
+cfees int not null,
+cinformation varchar(130) 
+);
+
+
+create table batchSeats(
+bid int primary key,
+cid int,
+totalSeats int,
+filledSeats int
+);
+
+
+create table batch(
+batchid int primary key auto_increment,
+batchnum int,
+cid int,
+semail varchar(15),
+
+foreign key (cid) references Courses(cid) ON DELETE CASCADE,
+foreign key (semail) references Students(semail) ON DELETE CASCADE,
+foreign key (batchnum) references batchSeats(bid) ON DELETE CASCADE
+);
+
+
+insert into courses values (1, 'JAVA', 5000,'backend');
+
+//We can insert our data from the app also.
+
+
+
