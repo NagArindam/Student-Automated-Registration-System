@@ -2,12 +2,12 @@ package com.masai.beanClass;
 
 import java.util.Objects;
 
-public class Administrator {
+public class Admin {
 
 	private String name;
 	private String password;
 	
-	public Administrator(String name, String password) {
+	public Admin(String name, String password) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -30,11 +30,6 @@ public class Administrator {
 	}
 
 	@Override
-	public String toString() {
-		return "Administrator [name=" + name + ", password=" + password + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		return Objects.hash(name, password);
 	}
@@ -47,9 +42,16 @@ public class Administrator {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Administrator other = (Administrator) obj;
+		Admin other = (Admin) obj;
 		return Objects.equals(name, other.name) && Objects.equals(password, other.password);
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Admin name=" + name + ", password=" + password;
+	}
+	
 	
 	
 	

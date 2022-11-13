@@ -6,27 +6,29 @@ import java.sql.SQLException;
 
 public class DButil {
 
-	
-	public static Connection provideConnection() {
+	public static Connection getConnection() throws SQLException {
 		
 		Connection conn = null;
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Drivr");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} 
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		String url = "jdbc:mysql://localhost:3306/automatedStudentRegistrationSystem";
+		String url = "jdbc:mysql://localhost:3306/automatedStudentRegistration";
 		
 		try {
 			conn = DriverManager.getConnection(url, "root", "sanu");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} 
+		catch (SQLException e) {
+			throw new SQLException(e.getMessage());
 		}
+		
 		
 		return conn;
 	}
+	
+
 }
